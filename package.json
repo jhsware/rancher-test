@@ -4,7 +4,8 @@
   "description": "Form library for inferno",
   "main": "server.js",
   "scripts": {
-    "start": "node ./server.js"
+    "start": "node ./server.js",
+    "build-test": "rm -rf ./dist && NODE_ENV=production node_modules/.bin/webpack --config ./webpack.config"
   },
   "keywords": [
     "inferno",
