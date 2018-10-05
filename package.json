@@ -1,0 +1,58 @@
+{
+  "name": "test-inferno-formlib",
+  "version": "5.2.5",
+  "description": "Form library for inferno",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "keywords": [
+    "inferno",
+    "isomorphic-schema",
+    "formlib"
+  ],
+  "author": "Sebastian Ware <sebastian@urbantalk.se> (https://github.com/jhsware)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jhsware/inferno-formlib.git"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "component-registry": "1.0.0-rc.6",
+    "isomorphic-schema": "1.0.0-beta.6",
+    "inferno": "^5.5.0",
+    "inferno-animation": "^5.1.4",
+    "inferno-bootstrap": "^5.1.4",
+    "inferno-formlib": "^5.2.5",
+    "inferno-popper": "^5.1.0",
+    "bootstrap": "^4.1.1",
+    "express": "^4.16.2",
+    "formidable": "^1.2.0",
+    "axios": "^0.17.1",
+    "safe-utils": "^0.2.1"
+  },
+  "devDependencies": {
+    "axios": "^0.17.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-inferno-app": "^7.1.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.2",
+    "formidable": "^1.2.0",
+    "inferno-clone-vnode": "^5.5.0",
+    "inferno-compat": "^5.5.0",
+    "inferno-create-class": "^5.5.0",
+    "inferno-create-element": "^5.5.0",
+    "inferno-devtools": "^5.5.0",
+    "inferno-router": "^5.5.0",
+    "isomorphic-schema": "1.0.0-beta.6",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8"
+  }
+}
