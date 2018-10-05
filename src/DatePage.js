@@ -1,5 +1,5 @@
 import { Component } from 'inferno'
-import DateFieldWidget from '../../../src/widgets/DateField'
+import DateFieldWidget from 'inferno-formlib/widgets/DateField'
 import DateField from 'isomorphic-schema/src/field_validators/DateField'
 import FormText from 'inferno-bootstrap/src/Form/FormText'
 import FormGroup from 'inferno-bootstrap/src/Form/FormGroup'

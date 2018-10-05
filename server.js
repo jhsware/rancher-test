@@ -3,6 +3,11 @@ const path = require('path')
 const express = require('express')
 const app = express()
 
+app.use((req, res) => {
+  res.send("Hallo world!")
+})
+
+/*
 // Uploaded files
 app.post('/images', require('./serverUpload'))
 app.use('/images', (req, res, next) => {
@@ -25,6 +30,7 @@ app.use('/compat', (req, res) => {
 app.use((req, res) => {
   res.sendFile(path.resolve(__dirname, './index.html'))
 })
+*/
 
 // *** SERVER ERROR HANDLER ***
 app.use(function (err, req, res, next) {
@@ -48,4 +54,4 @@ module.exports = function (PORT, done) {
   return app.listen(PORT, done)
 }
 
-module.exports(9090)
+module.exports(8080)
