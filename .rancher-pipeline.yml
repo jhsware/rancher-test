@@ -1,0 +1,17 @@
+stages:
+- name: Test
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: npm ci && npm test
+- name: Build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: test/app:v1
+- name: Fire up!
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+timeout: 60
