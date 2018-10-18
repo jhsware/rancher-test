@@ -10,8 +10,9 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: test/app:v1
+      registry: 127.0.0.1:34740
 - name: Fire up!
   steps:
   - applyYamlConfig:
-      path: ./deployment.yaml
+      path: ./deployment.yml
 timeout: 60
