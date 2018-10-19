@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: test-node-deployment
@@ -6,14 +6,22 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: node-app
+      app: test-node-deployment
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
       labels:
-        app: node-app
+        app: test-node-deployment
+      name: test-node-deployment
     spec:
       containers:
       - name: node-app-container
-        image: test/app:v1
+        image: deployment.apps/test-node-deployment
         ports:
-        - containerPort: 8080
+        - containerPort: 3000
+          name: http
+          protocol: TCP
