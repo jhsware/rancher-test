@@ -6,7 +6,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test-node-deployment
+      app: node-app
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -15,8 +15,7 @@ spec:
   template:
     metadata:
       labels:
-        app: test-node-deployment
-      name: test-node-deployment
+        app: node-app
     spec:
       containers:
       - name: node-app-container
