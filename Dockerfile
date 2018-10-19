@@ -17,6 +17,7 @@ RUN mkdir ./upload
 ENV NODE_ENV production
 ENV NODE_PATH /
 
-EXPOSE 8080
+ENV PORT 3000
+EXPOSE  $PORT
 
 ENTRYPOINT ["npm", "start"]
