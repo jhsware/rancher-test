@@ -1,6 +1,6 @@
 'use strict'
 const path = require('path')
-const { MongoClient, Server } = require('mongodb').MongoClient,
+const { MongoClient, Server } = require('mongodb')
 const express = require('express')
 const app = express()
 
@@ -9,7 +9,7 @@ let mongoclient = new MongoClient("mongodb://" + process.env.DB_HOST + ":" + pro
   replicaSet: 'rs0',
   authSource: 'admin',
   'auth.user': process.env.DB_USER,
-  'auth.password': process.env.DB_PWD
+  'auth.password': process.env.DB_PASSWORD
 })
 
 // Open the connection to the server
