@@ -6,6 +6,7 @@ const app = express()
 
 // Set up the connection to the local db
 let mongoclient = new MongoClient("mongodb://" + process.env.DB_HOST + ":" + process.env.DB_PORT, {
+  useNewUrlParser: true,
   replicaSet: 'rs0',
   authSource: 'admin',
   auth: {
