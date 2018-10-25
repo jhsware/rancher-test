@@ -1,10 +1,29 @@
 'use strict'
 const path = require('path')
+const { MongoClient, Server } = require('mongodb').MongoClient,
 const express = require('express')
 const app = express()
 
+// Set up the connection to the local db
+let mongoclient = new MongoClient("mongodb://" + process.env.DB_HOST + ":" + process.env.DB_PORT, {
+  replicaSet: 'rs0',
+  authSource: 'admin',
+  'auth.user': process.env.DB_USER,
+  'auth.password': process.env.DB_PWD
+})
+
+// Open the connection to the server
+let mongoConnected = "Not connected yet"
+mongoclient.connect()
+  .then(res => {
+    mongoConnected = "I am connected!"
+  })
+  .catch(e => {
+    mongoConnected = "Error: " + e.message
+  })
+
 app.use((req, res) => {
-  res.send("Hallo world!")
+  res.send("Hallo world!\n" + mongoConnected)
 })
 
 /*
