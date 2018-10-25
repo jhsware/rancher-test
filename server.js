@@ -8,8 +8,10 @@ const app = express()
 let mongoclient = new MongoClient("mongodb://" + process.env.DB_HOST + ":" + process.env.DB_PORT, {
   replicaSet: 'rs0',
   authSource: 'admin',
-  'auth.user': process.env.DB_USER,
-  'auth.password': process.env.DB_PASSWORD
+  auth: {
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD
+  }
 })
 
 // Open the connection to the server
