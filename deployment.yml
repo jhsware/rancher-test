@@ -1,26 +1,37 @@
-apiVersion: apps/v1beta2
+kind: Service
+apiVersion: v1
+metadata:
+  name: hellonode-service
+spec:
+  selector:
+    app: hellonode
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+---
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-node-deployment
+  name: example-hellonode
+  labels:
+    app: hellonode
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: node-app
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+      app: hellonode
   template:
     metadata:
       labels:
-        app: node-app
+        app: hellonode
     spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
       containers:
-      - name: node-app-container
-        image: deployment.apps/test-node-deployment
+      - name: hellonode
+        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
         - containerPort: 3000
-          name: http
-          protocol: TCP
+©

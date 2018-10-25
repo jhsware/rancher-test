@@ -1,18 +1,17 @@
 stages:
-- name: Test
+- name: Build
   steps:
   - runScriptConfig:
-      image: node:latest
-      shellScript: npm ci && npm test
-- name: Build
+      image: maven:3-jdk-7
+      shellScript: |-
+        mvn clean install
+- name: Publish
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: test/app:v1
-      registry: 127.0.0.1:34740
-- name: Fire up!
+      tag: example-hellonode:${CICD_EXECUTION_SEQUENCE}
+- name: Deploy
   steps:
   - applyYamlConfig:
-      path: ./deployment.yml
-timeout: 60
+      path: ./deployment.yaml
